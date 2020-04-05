@@ -1,4 +1,4 @@
-package com.serdnito.pokeapi.ui.modules.pokedex.view.settings
+package com.serdnito.pokeapi.ui.modules.home
 
 import android.content.SharedPreferences
 import android.os.Bundle

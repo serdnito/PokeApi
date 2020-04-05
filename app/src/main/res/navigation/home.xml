@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home"
+    app:startDestination="@id/screenHome">
+    <fragment
+        android:id="@+id/screenHome"
+        android:name="com.serdnito.pokeapi.ui.modules.home.HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_pokedex"
+            app:destination="@id/featurePokedex" />
+        <action
+            android:id="@+id/action_home_to_settings"
+            app:destination="@id/screenSettings" />
+    </fragment>
+    <fragment
+        android:id="@+id/screenSettings"
+        android:name="com.serdnito.pokeapi.ui.modules.home.SettingsFragment" />
+    <activity
+        android:id="@+id/featurePokedex"
+        android:name="com.serdnito.pokeapi.ui.modules.pokedex.view.PokedexActivity" />
+</navigation>

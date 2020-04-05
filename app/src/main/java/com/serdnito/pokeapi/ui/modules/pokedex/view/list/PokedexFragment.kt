@@ -1,7 +1,5 @@
 package com.serdnito.pokeapi.ui.modules.pokedex.view.list
 
-import android.os.Bundle
-import android.view.*
 import androidx.navigation.fragment.findNavController
 import com.serdnito.pokeapi.R
 import com.serdnito.pokeapi.core.ktx.addOnBottomReachListener
@@ -20,30 +18,9 @@ class PokedexFragment : BaseFragment(R.layout.fragment_pokedex), PokedexPresente
     private val pokedex = mutableListOf<Pokemon>()
     private val adapterPokemon = PokemonAdapter(pokedex) { presenter.onPokemonClick(it) }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_main, menu)
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        setHasOptionsMenu(true)
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
-
     override fun onDestroyView() {
         presenter.stop()
         super.onDestroyView()
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.menuSettings) {
-            presenter.onSettingsClick()
-            return true
-        }
-        return super.onOptionsItemSelected(item)
     }
 
     override fun initPresenter() {
@@ -66,11 +43,6 @@ class PokedexFragment : BaseFragment(R.layout.fragment_pokedex), PokedexPresente
 
     override fun openPokemonDetail(pokemonId: Int) {
         val action = PokedexFragmentDirections.actionPokedexToPokemon(pokemonId)
-        findNavController().navigate(action)
-    }
-
-    override fun openSettings() {
-        val action = PokedexFragmentDirections.actionPokedexToSettings()
         findNavController().navigate(action)
     }
 

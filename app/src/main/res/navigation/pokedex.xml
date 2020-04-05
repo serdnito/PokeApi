@@ -10,9 +10,6 @@
         <action
             android:id="@+id/action_pokedex_to_pokemon"
             app:destination="@id/screenPokemon" />
-        <action
-            android:id="@+id/action_pokedex_to_settings"
-            app:destination="@id/screenSettings" />
     </fragment>
     <fragment
         android:id="@+id/screenPokemon"
@@ -23,7 +20,4 @@
             app:argType="integer"
             app:nullable="false" />
     </fragment>
-    <fragment
-        android:id="@+id/screenSettings"
-        android:name="com.serdnito.pokeapi.ui.modules.pokedex.view.settings.SettingsFragment" />
 </navigation>

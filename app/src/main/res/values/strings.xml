@@ -8,6 +8,9 @@
     <string name="error_retry">Reintentar</string>
     <!-- Splash -->
     <string name="splash_icon_copyright">Iconos diseñados por <a href="https://www.flaticon.es/autores/those-icons" title="Those Icons">Those Icons</a> from <a href="https://www.flaticon.es/" title="Flaticon"> www.flaticon.es</a></string>
+    <!-- Home -->
+    <string name="home_pokedex">Pokédex</string>
+    <string name="home_settings">Settings</string>
     <!--Pokedex -->
     <string name="pokedex_menu_settings">Ajustes</string>
     <string name="pokedex_icon_copyright">Icons made by <a href="https://www.flaticon.com/authors/roundicons-freebies" title="Roundicons Freebies">Roundicons Freebies</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></string>

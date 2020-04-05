@@ -63,13 +63,8 @@ class PokedexPresenter @Inject constructor(
         view?.openPokemonDetail(pokemon.id)
     }
 
-    fun onSettingsClick() {
-        view?.openSettings()
-    }
-
     interface PokedexView : BaseView {
         fun openPokemonDetail(pokemonId: Int)
-        fun openSettings()
         fun updatePokedex(from: Int, count: Int)
     }
 
