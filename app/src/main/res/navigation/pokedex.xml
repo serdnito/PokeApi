@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/screenPokedex">
+    <fragment
+        android:id="@+id/screenPokedex"
+        android:name="com.serdnito.pokeapi.ui.modules.pokedex.view.list.PokedexFragment"
+        tools:layout="@layout/fragment_pokedex">
+        <action
+            android:id="@+id/action_pokedex_to_pokemon"
+            app:destination="@id/screenPokemon" />
+        <action
+            android:id="@+id/action_pokedex_to_settings"
+            app:destination="@id/screenSettings" />
+    </fragment>
+    <fragment
+        android:id="@+id/screenPokemon"
+        android:name="com.serdnito.pokeapi.ui.modules.pokedex.view.detail.PokemonFragment"
+        tools:layout="@layout/fragment_under_construction">
+        <argument
+            android:name="pokemonId"
+            app:argType="integer"
+            app:nullable="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/screenSettings"
+        android:name="com.serdnito.pokeapi.ui.modules.pokedex.view.settings.SettingsFragment" />
+</navigation>

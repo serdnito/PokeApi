@@ -1,0 +1,38 @@
+ext {
+    daggerPackage = 'com.google.dagger'
+    daggerVersion = '2.25.4'
+    dagger = [
+            library : "${daggerPackage}:dagger:$daggerVersion",
+            compiler: "${daggerPackage}:dagger-compiler:$daggerVersion"
+    ]
+    androidXNavigationVersion = '2.2.1'
+    androidXRoomVersion = '2.2.5'
+    androidX = [
+            appCompat         : 'androidx.appcompat:appcompat:1.1.0',
+            fragment          : 'androidx.fragment:fragment:1.2.3',
+            constraint        : 'androidx.constraintlayout:constraintlayout:1.1.3',
+            navigationFragment: "androidx.navigation:navigation-fragment-ktx:$androidXNavigationVersion",
+            navigationUi      : "androidx.navigation:navigation-ui-ktx:$androidXNavigationVersion",
+            preference        : "androidx.preference:preference:1.1.0",
+            roomCore          : "androidx.room:room-runtime:$androidXRoomVersion",
+            roomRx            : "androidx.room:room-rxjava2:$androidXRoomVersion"
+    ]
+    androidXCompiler = [
+            room: "androidx.room:room-compiler:$androidXRoomVersion"
+    ]
+    materialComponents = 'com.google.android.material:material:1.1.0'
+    okHttpLogging = 'com.squareup.okhttp3:logging-interceptor:3.13.1'
+    picasso = 'com.squareup.picasso:picasso:2.71828'
+    retrofitPackage = 'com.squareup.retrofit2'
+    retrofitVersion = '2.7.1'
+    retrofit = [
+            retrofit     : "$retrofitPackage:retrofit:$retrofitVersion",
+            adapterRx    : "$retrofitPackage:adapter-rxjava2:$retrofitVersion",
+            converterGson: "$retrofitPackage:converter-gson:$retrofitVersion"
+    ]
+    rxPackage = 'io.reactivex.rxjava2'
+    rx = [
+            java   : "${rxPackage}:rxjava:2.2.16",
+            android: "${rxPackage}:rxandroid:2.1.1"
+    ]
+}

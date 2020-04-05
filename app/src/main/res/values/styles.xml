@@ -1,0 +1,135 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="colorOnBackground">@color/colorOnBackground</item>
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="android:textColorPrimary">@color/colorOnSurface</item>
+        <!-- Other colors -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Material text appearances -->
+        <item name="textAppearanceHeadline1">@style/Text.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/Text.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/Text.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/Text.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/Text.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/Text.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/Text.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/Text.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/Text.Body1</item>
+        <item name="textAppearanceBody2">@style/Text.Body2</item>
+        <item name="textAppearanceButton">@style/Text.Button</item>
+        <item name="textAppearanceCaption">@style/Text.Caption</item>
+        <item name="textAppearanceOverline">@style/Text.Overline</item>
+        <!-- Themes -->
+        <item name="materialButtonStyle">@style/Button</item>
+        <item name="materialCardViewStyle">@style/Widget.MaterialComponents.CardView</item>
+        <!-- Don't use "toolbarStyle" with the theme of Material, it will only work if the style is
+        applied directly to a Toolbar. For example, back icon doesn't get colorOnPrimary -->
+        <!-- Other -->
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
+
+    <style name="Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Card" parent="Widget.MaterialComponents.CardView">
+        <item name="cornerRadius">16dp</item>
+    </style>
+
+    <style name="Chip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="android:checked">true</item>
+        <item name="android:clickable">false</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textAppearance">@style/Text.Caption</item>
+        <item name="chipMinTouchTargetSize">0dp</item>
+    </style>
+
+    <style name="Text.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="fontFamily">@font/raleway_light</item>
+        <item name="android:fontFamily">@font/raleway_light</item>
+    </style>
+
+    <style name="Text.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="fontFamily">@font/raleway_light</item>
+        <item name="android:fontFamily">@font/raleway_light</item>
+    </style>
+
+    <style name="Text.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="fontFamily">@font/raleway_regular</item>
+        <item name="android:fontFamily">@font/raleway_regular</item>
+    </style>
+
+    <style name="Text.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="fontFamily">@font/raleway_regular</item>
+        <item name="android:fontFamily">@font/raleway_regular</item>
+    </style>
+
+    <style name="Text.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="fontFamily">@font/raleway_bold</item>
+        <item name="android:fontFamily">@font/raleway_bold</item>
+    </style>
+
+    <style name="Text.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/raleway_medium</item>
+        <item name="android:fontFamily">@font/raleway_medium</item>
+    </style>
+
+    <style name="Text.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/raleway_regular</item>
+        <item name="android:fontFamily">@font/raleway_regular</item>
+    </style>
+
+    <style name="Text.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="fontFamily">@font/raleway_medium</item>
+        <item name="android:fontFamily">@font/raleway_medium</item>
+    </style>
+
+    <style name="Text.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/raleway_regular</item>
+        <item name="android:fontFamily">@font/raleway_regular</item>
+    </style>
+
+    <style name="Text.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/raleway_regular</item>
+        <item name="android:fontFamily">@font/raleway_regular</item>
+    </style>
+
+    <style name="Text.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/raleway_medium</item>
+        <item name="android:fontFamily">@font/raleway_medium</item>
+    </style>
+
+    <style name="Text.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="fontFamily">@font/raleway_bold</item>
+        <item name="android:fontFamily">@font/raleway_bold</item>
+    </style>
+
+    <style name="Text.Overline" parent="TextAppearance.MaterialComponents.Overline">
+        <item name="fontFamily">@font/raleway_regular</item>
+        <item name="android:fontFamily">@font/raleway_regular</item>
+    </style>
+
+    <style name="Theme.Chip" parent="Widget.MaterialComponents.Chip.Choice">
+
+    </style>
+
+</resources>

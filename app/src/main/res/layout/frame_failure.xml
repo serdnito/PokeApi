@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frameFailure"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgCaterpie"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/margin"
+        android:rotation="345"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@id/imgWeedle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.3"
+        app:srcCompat="@drawable/ic_caterpie" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgWeedle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/margin"
+        android:rotation="15"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgCaterpie"
+        app:layout_constraintWidth_percent="0.3"
+        app:srcCompat="@drawable/ic_weedle" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtFailureMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:text="@string/error_default"
+        android:textAlignment="center"
+        android:textAppearance="@style/Text.Headline5"
+        android:textColor="@color/colorOnBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnFailureRetry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:text="@string/error_retry"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtFailureMessage" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

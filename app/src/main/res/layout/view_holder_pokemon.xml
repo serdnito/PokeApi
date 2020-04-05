@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardPokemon"
+    style="@style/Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:cardBackgroundColor="#49CFAF"
+    tools:layout_margin="@dimen/margin">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_pokeball_uncolored" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:layout_marginEnd="@dimen/margin"
+            android:textAppearance="@style/Text.Headline4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="#001"
+            tools:textColor="@color/colorOnPrimary" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgSprite"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtNumber"
+            tools:src="@sample/pokemon" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="@style/Text.Headline5"
+            app:layout_constraintBottom_toBottomOf="@id/txtNumber"
+            app:layout_constraintEnd_toStartOf="@id/imgSprite"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtNumber"
+            tools:text="@sample/pokedex"
+            tools:textColor="@color/colorOnPrimary" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipPrimaryType"
+            style="@style/Chip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin"
+            android:layout_marginTop="@dimen/margin"
+            app:layout_constraintBottom_toTopOf="@id/chipSecondaryType"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtName"
+            tools:chipBackgroundColor="#BF49CFAF"
+            tools:text="@sample/types"
+            tools:textColor="#121212" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipSecondaryType"
+            style="@style/Chip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin"
+            android:layout_marginTop="@dimen/margin_micro"
+            android:layout_marginBottom="@dimen/margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chipPrimaryType"
+            tools:chipBackgroundColor="#BF49CFAF"
+            tools:text="@sample/types"
+            tools:textColor="#121212" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
