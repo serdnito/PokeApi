@@ -7,6 +7,18 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="@dimen/margin_micro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_close" />
+
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgCaterpie"
         android:layout_width="0dp"
         android:layout_height="0dp"

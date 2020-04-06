@@ -6,11 +6,9 @@ import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupWithNavController
-import com.serdnito.pokeapi.R
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.frame_content.*
+import com.serdnito.pokeapi.R
+import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.frame_failure.*
 import kotlinx.android.synthetic.main.frame_loading.*
 
@@ -36,12 +34,8 @@ abstract class BaseActivity(
     }
 
     private fun initToolbar() {
-        setSupportActionBar(toolbar)
         navController.setGraph(graphResId)
-        val appBarConfiguration = AppBarConfiguration(navController.graph)
-        toolbar.setupWithNavController(navController, appBarConfiguration)
     }
-
 
     override fun showError(message: String, retryAction: () -> Unit) {
         viewStubFailure?.run {
@@ -51,10 +45,13 @@ abstract class BaseActivity(
     }
 
     private fun showFailureFrame(message: String, retryAction: () -> Unit) {
+        fragmentContainerView?.visibility = View.GONE
         frameFailure?.visibility = View.VISIBLE
+        imgClose?.setOnClickListener { onBackPressed() }
         txtFailureMessage?.text = message
         btnFailureRetry?.setOnClickListener {
             frameFailure?.visibility = View.GONE
+            fragmentContainerView?.visibility = View.VISIBLE
             retryAction()
         }
     }

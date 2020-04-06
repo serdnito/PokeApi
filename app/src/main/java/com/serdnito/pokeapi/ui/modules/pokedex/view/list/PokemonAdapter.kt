@@ -3,7 +3,6 @@ package com.serdnito.pokeapi.ui.modules.pokedex.view.list
 import android.annotation.SuppressLint
 import android.content.res.ColorStateList
 import android.graphics.Color
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.ColorInt
@@ -50,7 +49,7 @@ class PokemonAdapter(
             val bgColor = Color.parseColor(pokemon.types[0].getColor().bgHexColor)
             cardPokemon?.setCardBackgroundColor(bgColor)
             val textColor = Color.parseColor(pokemon.types[0].getColor().textHexColor)
-            val formattedNumber = pokemon.order.toString().padStart(3, '0')
+            val formattedNumber = pokemon.id.toString().padStart(3, '0')
             txtNumber?.run {
                 setTextColor(textColor)
                 text = resources.getString(R.string.pokedex_number, formattedNumber)

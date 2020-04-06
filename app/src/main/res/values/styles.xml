@@ -68,6 +68,10 @@
         <item name="useCompatPadding">true</item>
     </style>
 
+    <style name="Tab" parent="Widget.MaterialComponents.TabLayout">
+        <item name="android:theme">@style/Theme.Tab</item>
+    </style>
+
     <style name="Text.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
         <item name="fontFamily">@font/raleway_light</item>
         <item name="android:fontFamily">@font/raleway_light</item>
@@ -84,8 +88,8 @@
     </style>
 
     <style name="Text.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
-        <item name="fontFamily">@font/raleway_regular</item>
-        <item name="android:fontFamily">@font/raleway_regular</item>
+        <item name="fontFamily">@font/raleway_medium</item>
+        <item name="android:fontFamily">@font/raleway_medium</item>
     </style>
 
     <style name="Text.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
@@ -94,8 +98,8 @@
     </style>
 
     <style name="Text.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
-        <item name="fontFamily">@font/raleway_medium</item>
-        <item name="android:fontFamily">@font/raleway_medium</item>
+        <item name="fontFamily">@font/raleway_bold</item>
+        <item name="android:fontFamily">@font/raleway_bold</item>
     </style>
 
     <style name="Text.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
@@ -133,8 +137,8 @@
         <item name="android:fontFamily">@font/raleway_regular</item>
     </style>
 
-    <style name="Theme.Chip" parent="Widget.MaterialComponents.Chip.Choice">
-
+    <style name="Theme.Tab" parent="Widget.MaterialComponents.TabLayout">
+        <item name="colorPrimary">?attr/colorOnSurface</item>
     </style>
 
 </resources>

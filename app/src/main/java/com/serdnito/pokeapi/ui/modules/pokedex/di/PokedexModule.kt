@@ -1,7 +1,6 @@
 package com.serdnito.pokeapi.ui.modules.pokedex.di
 
 import com.serdnito.pokeapi.core.di.ActivityScope
-import com.serdnito.pokeapi.data.api.PokeApi
 import com.serdnito.pokeapi.data.datasource.pokemon.PokemonLocalDataSource
 import com.serdnito.pokeapi.data.datasource.pokemon.PokemonRemoteDataSource
 import com.serdnito.pokeapi.data.repository.PokemonDataRepository

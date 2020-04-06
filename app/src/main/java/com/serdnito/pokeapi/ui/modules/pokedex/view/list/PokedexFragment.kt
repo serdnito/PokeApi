@@ -9,7 +9,6 @@ import com.serdnito.pokeapi.core.mvp.BaseFragment
 import com.serdnito.pokeapi.domain.model.Pokemon
 import com.serdnito.pokeapi.ui.modules.pokedex.di.inject
 import kotlinx.android.synthetic.main.fragment_pokedex.*
-import kotlinx.android.synthetic.main.frame_content.*
 import javax.inject.Inject
 
 class PokedexFragment : BaseFragment(R.layout.fragment_pokedex), PokedexPresenter.PokedexView {
@@ -34,7 +33,7 @@ class PokedexFragment : BaseFragment(R.layout.fragment_pokedex), PokedexPresente
         recyclerView?.run {
             addOnScrollListener {
                 val scrollStarted = recyclerView?.canScrollVertically(-1) ?: false
-                activity?.toolbar?.isSelected = scrollStarted
+                toolbar?.isSelected = scrollStarted
             }
             addOnBottomReachListener { presenter.onPokedexReachBottom(pokedex) }
             setHasFixedSize(true)

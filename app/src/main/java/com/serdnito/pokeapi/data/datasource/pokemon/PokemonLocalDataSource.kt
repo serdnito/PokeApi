@@ -1,16 +1,18 @@
 package com.serdnito.pokeapi.data.datasource.pokemon
 
+import com.serdnito.pokeapi.core.executor.Executor
 import com.serdnito.pokeapi.core.ktx.flatMapCompletable
 import com.serdnito.pokeapi.core.ktx.mapSingle
-import com.serdnito.pokeapi.core.executor.Executor
 import com.serdnito.pokeapi.data.database.PokeDatabase
 import com.serdnito.pokeapi.data.database.entity.*
 import com.serdnito.pokeapi.domain.model.NamedResourceList
 import com.serdnito.pokeapi.domain.model.Pokemon
+import com.serdnito.pokeapi.domain.model.PokemonStat
 import com.serdnito.pokeapi.domain.model.PokemonType
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Single
+import io.reactivex.functions.BiFunction
 import javax.inject.Inject
 
 class PokemonLocalDataSource @Inject constructor(
@@ -25,10 +27,23 @@ class PokemonLocalDataSource @Inject constructor(
     fun getPokemon(id: Int): Flowable<Pokemon> =
         database.pokemonDao().select(id)
             .flatMap { pokemon ->
-                database.pokemonAndTypeJoinDao().getTypesForPokemon(id)
-                    .map { pokemon.mapToDomain(it) }
+                Single.zip(
+                    getPokemonTypes(id),
+                    getPokemonStats(id),
+                    BiFunction<List<TypeEntity>, List<PokemonStatEntity>, Pokemon> { types, stats ->
+                        pokemon.mapToDomain(types, stats)
+                    }
+                )
             }
             .toFlowable()
+
+    private fun getPokemonStats(pokemonId: Int) =
+        database.pokemonAndStatJoinDao().getStatsForPokemon(pokemonId)
+            .subscribeOn(executor.io)
+
+    private fun getPokemonTypes(pokemonId: Int) =
+        database.pokemonAndTypeJoinDao().getTypesForPokemon(pokemonId)
+            .subscribeOn(executor.io)
 
     fun savePokedex(namedResourceList: NamedResourceList): Single<NamedResourceList> =
         namedResourceList.list.map { PokedexItemEntity(it.id, it.name) }
@@ -37,32 +52,44 @@ class PokemonLocalDataSource @Inject constructor(
 
     fun savePokemon(pokemon: Pokemon): Single<Pokemon> {
         val dbOperations = listOf(
-            pokemon.mapToEntity().mapSingle()
-                .flatMapCompletable { database.pokemonDao().insert(it) }
-                .subscribeOn(executor.io),
-            pokemon.types.mapToEntity().mapSingle()
-                .flatMapCompletable { database.pokemonTypeDao().insertAll(it) }
-                .subscribeOn(executor.io),
-            pokemon.types.mapToEntity(pokemon).mapSingle()
-                .flatMapCompletable { database.pokemonAndTypeJoinDao().insertAll(it) }
-                .subscribeOn(executor.io)
+            savePokemonInfo(pokemon),
+            saveTypes(pokemon.types),
+            savePokemonTypes(pokemon),
+            saveStats(pokemon.stats),
+            savePokemonStats(pokemon)
         )
         return Completable.concat(dbOperations).toSingleDefault(pokemon)
     }
 
-    private fun Pokemon.mapToEntity() =
-        PokemonEntity(id, name, order, urlFrontSprite)
+    private fun savePokemonInfo(pokemon: Pokemon) =
+        PokemonEntity.mapFromDomain(pokemon)
+            .mapSingle()
+            .flatMapCompletable { database.pokemonDao().insert(it) }
+            .subscribeOn(executor.io)
 
-    private fun List<PokemonType>.mapToEntity() =
-        map { PokemonTypeEntity(it.id, it.name) }
+    private fun savePokemonStats(pokemon: Pokemon) =
+        PokemonAndStatJoin.mapFromDomain(pokemon, pokemon.stats)
+            .mapSingle()
+            .flatMapCompletable { database.pokemonAndStatJoinDao().insertAll(it) }
+            .subscribeOn(executor.io)
 
-    private fun List<PokemonType>.mapToEntity(pokemon: Pokemon) =
-        mapIndexed { index, pokemonType ->
-            PokemonAndTypeJoin(
-                pokemon.id,
-                pokemonType.id,
-                if (size == 1 || (size > 1 && index != 0)) 1 else 0
-            )
-        }
+    private fun savePokemonTypes(pokemon: Pokemon) =
+        PokemonAndTypeJoin.mapFromDomain(pokemon)
+            .mapSingle()
+            .flatMapCompletable { database.pokemonAndTypeJoinDao().insertAll(it) }
+            .subscribeOn(executor.io)
+
+    private fun saveStats(stats: List<PokemonStat>) =
+        StatEntity.mapFromDomain(stats)
+            .mapSingle()
+            .flatMapCompletable { database.pokemonStatDao().insertAll(it) }
+            .subscribeOn(executor.io)
+
+    private fun saveTypes(types: List<PokemonType>) =
+        TypeEntity.mapFromDomain(types)
+            .mapSingle()
+            .flatMapCompletable { database.pokemonTypeDao().insertAll(it) }
+            .subscribeOn(executor.io)
+
 
 }

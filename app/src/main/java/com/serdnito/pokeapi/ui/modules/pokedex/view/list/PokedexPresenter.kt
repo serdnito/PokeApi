@@ -2,7 +2,7 @@ package com.serdnito.pokeapi.ui.modules.pokedex.view.list
 
 import com.serdnito.pokeapi.core.error.ErrorHandler
 import com.serdnito.pokeapi.core.ktx.subscribeBy
-import com.serdnito.pokeapi.core.mvp.BasePresenter
+import com.serdnito.pokeapi.core.mvp.Presenter
 import com.serdnito.pokeapi.core.mvp.BaseView
 import com.serdnito.pokeapi.domain.model.Pokemon
 import com.serdnito.pokeapi.domain.usecase.GetPokedex
@@ -12,7 +12,7 @@ import javax.inject.Inject
 class PokedexPresenter @Inject constructor(
     private val errorHandler: ErrorHandler,
     private val getPokedex: GetPokedex
-) : BasePresenter<PokedexPresenter.PokedexView>() {
+) : Presenter<PokedexPresenter.PokedexView>() {
 
     private val compositeDisposable = CompositeDisposable()
     private var isLoading = false

@@ -4,17 +4,18 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.serdnito.pokeapi.data.database.dao.PokedexDao
-import com.serdnito.pokeapi.data.database.dao.PokemonAndTypeJoinDao
-import com.serdnito.pokeapi.data.database.dao.PokemonDao
-import com.serdnito.pokeapi.data.database.dao.PokemonTypeDao
-import com.serdnito.pokeapi.data.database.entity.PokedexItemEntity
-import com.serdnito.pokeapi.data.database.entity.PokemonAndTypeJoin
-import com.serdnito.pokeapi.data.database.entity.PokemonEntity
-import com.serdnito.pokeapi.data.database.entity.PokemonTypeEntity
+import com.serdnito.pokeapi.data.database.dao.*
+import com.serdnito.pokeapi.data.database.entity.*
 
 @Database(
-    entities = [PokedexItemEntity::class, PokemonEntity::class, PokemonTypeEntity::class, PokemonAndTypeJoin::class],
+    entities = [
+        PokedexItemEntity::class,
+        PokemonEntity::class,
+        StatEntity::class,
+        PokemonAndStatJoin::class,
+        TypeEntity::class,
+        PokemonAndTypeJoin::class
+    ],
     version = 1
 )
 abstract class PokeDatabase : RoomDatabase() {
@@ -36,11 +37,10 @@ abstract class PokeDatabase : RoomDatabase() {
     }
 
     abstract fun pokedexDao(): PokedexDao
-
     abstract fun pokemonDao(): PokemonDao
-
-    abstract fun pokemonTypeDao(): PokemonTypeDao
-
+    abstract fun pokemonStatDao(): StatDao
+    abstract fun pokemonAndStatJoinDao(): PokemonAndStatJoinDao
+    abstract fun pokemonTypeDao(): TypeDao
     abstract fun pokemonAndTypeJoinDao(): PokemonAndTypeJoinDao
 
 }

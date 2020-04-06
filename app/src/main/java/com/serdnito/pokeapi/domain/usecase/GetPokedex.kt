@@ -23,7 +23,7 @@ class GetPokedex @Inject constructor(
                     .toList()
             }
             .map {
-                val pokedex = Pokedex(it.sortedBy { pokemon -> pokemon.order })
+                val pokedex = Pokedex(it.sortedBy { pokemon -> pokemon.id })
                 Output(pokedex)
             }
 
