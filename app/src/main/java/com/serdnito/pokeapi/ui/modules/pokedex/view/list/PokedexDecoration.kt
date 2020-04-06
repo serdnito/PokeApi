@@ -5,10 +5,12 @@ import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.serdnito.pokeapi.R
+import com.serdnito.pokeapi.core.widget.recyclerview.Decoration
 
-class PokedexDecoration(resources: Resources) : RecyclerView.ItemDecoration() {
+class PokedexDecoration(resources: Resources) : Decoration() {
 
-    private val margin = resources.getDimensionPixelSize(R.dimen.margin)
+    private val marginLarge = resources.getDimensionPixelSize(R.dimen.margin_large)
+    private val marginSmall = resources.getDimensionPixelSize(R.dimen.margin_small)
 
     override fun getItemOffsets(
         outRect: Rect,
@@ -19,16 +21,10 @@ class PokedexDecoration(resources: Resources) : RecyclerView.ItemDecoration() {
         val itemPosition = parent.getChildAdapterPosition(view)
         when {
             unknownPosition(itemPosition) -> return
-            isFirstItem(itemPosition) -> outRect.set(margin, margin, margin, margin)
-            isLastItem(itemPosition, state.itemCount) -> outRect.set(margin, 0, margin, margin)
-            else -> outRect.set(margin, 0, margin, margin)
+            isFirstItem(itemPosition) -> outRect.set(marginLarge, marginSmall, marginLarge, marginSmall)
+            isLastItem(itemPosition, state.itemCount) -> outRect.set(marginLarge, 0, marginLarge, marginSmall)
+            else -> outRect.set(marginLarge, 0, marginLarge, marginSmall)
         }
     }
-
-    private fun isFirstItem(position: Int) = (position == 0)
-
-    private fun isLastItem(position: Int, count: Int) = (count > 0) && (position == count - 1)
-
-    private fun unknownPosition(position: Int) = (position == RecyclerView.NO_POSITION)
 
 }

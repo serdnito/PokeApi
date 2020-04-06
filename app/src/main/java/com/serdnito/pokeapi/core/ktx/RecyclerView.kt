@@ -29,6 +29,14 @@ fun RecyclerView.addOnBottomReachListener(onBottomReach: () -> Unit) {
     })
 }
 
+fun RecyclerView.addOnScrollListener(action: () -> Unit) {
+    addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+            action()
+        }
+    })
+}
+
 fun RecyclerView.ItemDecoration.attachTo(recyclerView: RecyclerView) {
     recyclerView.addItemDecoration(this)
 }

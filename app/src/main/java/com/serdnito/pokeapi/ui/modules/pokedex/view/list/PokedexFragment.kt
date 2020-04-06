@@ -3,11 +3,13 @@ package com.serdnito.pokeapi.ui.modules.pokedex.view.list
 import androidx.navigation.fragment.findNavController
 import com.serdnito.pokeapi.R
 import com.serdnito.pokeapi.core.ktx.addOnBottomReachListener
+import com.serdnito.pokeapi.core.ktx.addOnScrollListener
 import com.serdnito.pokeapi.core.ktx.attachTo
 import com.serdnito.pokeapi.core.mvp.BaseFragment
 import com.serdnito.pokeapi.domain.model.Pokemon
 import com.serdnito.pokeapi.ui.modules.pokedex.di.inject
 import kotlinx.android.synthetic.main.fragment_pokedex.*
+import kotlinx.android.synthetic.main.frame_content.*
 import javax.inject.Inject
 
 class PokedexFragment : BaseFragment(R.layout.fragment_pokedex), PokedexPresenter.PokedexView {
@@ -30,7 +32,11 @@ class PokedexFragment : BaseFragment(R.layout.fragment_pokedex), PokedexPresente
 
     override fun initUi() {
         recyclerView?.run {
-            addOnBottomReachListener { presenter.onBottomReach(pokedex) }
+            addOnScrollListener {
+                val scrollStarted = recyclerView?.canScrollVertically(-1) ?: false
+                activity?.toolbar?.isSelected = scrollStarted
+            }
+            addOnBottomReachListener { presenter.onPokedexReachBottom(pokedex) }
             setHasFixedSize(true)
             PokedexDecoration(resources).attachTo(this)
             adapter = adapterPokemon

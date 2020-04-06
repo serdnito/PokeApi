@@ -44,14 +44,14 @@
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Dark" />
 
     <style name="Button" parent="Widget.MaterialComponents.Button">
         <item name="android:textAllCaps">false</item>
     </style>
 
     <style name="Card" parent="Widget.MaterialComponents.CardView">
-        <item name="cornerRadius">16dp</item>
+        <item name="cardCornerRadius">16dp</item>
     </style>
 
     <style name="Chip" parent="Widget.MaterialComponents.Chip.Choice">
@@ -61,6 +61,11 @@
         <item name="android:maxLines">1</item>
         <item name="android:textAppearance">@style/Text.Caption</item>
         <item name="chipMinTouchTargetSize">0dp</item>
+    </style>
+
+    <style name="Fab" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="backgroundTint">?attr/colorPrimary</item>
+        <item name="useCompatPadding">true</item>
     </style>
 
     <style name="Text.Headline1" parent="TextAppearance.MaterialComponents.Headline1">

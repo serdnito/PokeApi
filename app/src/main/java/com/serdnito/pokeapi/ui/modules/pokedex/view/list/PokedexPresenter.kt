@@ -53,7 +53,7 @@ class PokedexPresenter @Inject constructor(
                 })
     }
 
-    fun onBottomReach(pokedex: MutableList<Pokemon>) {
+    fun onPokedexReachBottom(pokedex: MutableList<Pokemon>) {
         if (!isLoading) {
             getNewPokemon(pokedex)
         }

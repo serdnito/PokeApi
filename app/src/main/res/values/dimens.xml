@@ -1,4 +1,8 @@
 <resources>
+    <dimen name="appbar_elevation">4dp</dimen> <!-- Copy of Material: design_appbar_elevation -->
+    <dimen name="fab_decoration_offset">88dp</dimen> <!-- Copy of Material: design_fab_size_normal + (2 * 16) -->
     <dimen name="margin_micro">4dp</dimen>
+    <dimen name="margin_small">12dp</dimen>
     <dimen name="margin">16dp</dimen>
+    <dimen name="margin_large">24dp</dimen>
 </resources>

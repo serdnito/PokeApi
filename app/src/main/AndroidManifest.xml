@@ -28,6 +28,7 @@
 
         <activity
             android:name=".ui.modules.pokedex.view.PokedexActivity"
+            android:label="@string/home_pokedex"
             android:theme="@style/AppTheme.NoActionBar" />
 
     </application>
