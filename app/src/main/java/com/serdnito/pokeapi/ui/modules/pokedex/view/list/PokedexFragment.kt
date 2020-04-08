@@ -17,7 +17,7 @@ class PokedexFragment : BaseFragment(R.layout.fragment_pokedex), PokedexPresente
     lateinit var presenter: PokedexPresenter
 
     private val pokedex = mutableListOf<Pokemon>()
-    private val adapterPokemon = PokemonAdapter(pokedex) { presenter.onPokemonClick(it) }
+    private val adapterPokemon = PokedexAdapter(pokedex) { presenter.onPokemonClick(it) }
 
     override fun onDestroyView() {
         presenter.stop()

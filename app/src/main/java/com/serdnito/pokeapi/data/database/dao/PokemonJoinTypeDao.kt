@@ -4,16 +4,16 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.serdnito.pokeapi.data.database.entity.PokemonAndTypeJoin
+import com.serdnito.pokeapi.data.database.entity.PokemonJoinTypeEntity
 import com.serdnito.pokeapi.data.database.entity.TypeEntity
 import io.reactivex.Completable
 import io.reactivex.Single
 
 @Dao
-interface PokemonAndTypeJoinDao {
+interface PokemonJoinTypeDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertAll(pokemonAndTypeJoin: List<PokemonAndTypeJoin>): Completable
+    fun insertAll(pokemonAndTypeJoin: List<PokemonJoinTypeEntity>): Completable
 
     @Query(
         """

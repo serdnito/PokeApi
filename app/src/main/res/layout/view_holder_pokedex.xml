@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardPokemon"
-    style="@style/Card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:cardBackgroundColor="#77DD77"

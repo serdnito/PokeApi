@@ -17,7 +17,20 @@
     <string name="pokedex_number">#%s</string>
     <!-- Pokémon -->
     <string name="pokemon_about">About</string>
+    <string name="pokemon_height_label">Height</string>
+    <string name="pokemon_height_value">%.1f m</string>
+    <string name="pokemon_weight_label">Weight</string>
+    <string name="pokemon_weight_value">%.1f kg</string>
+    <string name="pokemon_abilities_label">Abilities</string>
+    <string name="pokemon_abilities_hidden_value">%s (hidden)</string>
     <string name="pokemon_stats">Base stats</string>
+    <string name="pokemon_stat_hp">HP</string>
+    <string name="pokemon_stat_attack">Attack</string>
+    <string name="pokemon_stat_defense">Defense</string>
+    <string name="pokemon_stat_sp_attack">Sp. atk</string>
+    <string name="pokemon_stat_sp_defense">Sp. def</string>
+    <string name="pokemon_stat_speed">Speed</string>
+    <string name="pokemon_evolution">Evolution</string>
     <string name="pokemon_moves">Moves</string>
     <!-- Settings -->
     <string name="settings_theme_title">Tema</string>

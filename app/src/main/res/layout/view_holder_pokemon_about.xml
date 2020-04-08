@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/margin_large">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtLabelHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="@dimen/alpha_label"
+            android:text="@string/pokemon_height_label"
+            android:textAppearance="@style/Text.Body1.OnSurface"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtLabelWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:alpha="@dimen/alpha_label"
+            android:text="@string/pokemon_weight_label"
+            android:textAppearance="@style/Text.Body1.OnSurface"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtLabelHeight" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtLabelAbilities"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:alpha="@dimen/alpha_label"
+            android:text="@string/pokemon_abilities_label"
+            android:textAppearance="@style/Text.Body1.OnSurface"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtLabelWeight" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrierLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="txtLabelHeight,txtLabelWeight,txtLabelAbilities" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtValueHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            android:textAppearance="@style/Text.Body1.OnSurface"
+            app:layout_constraintBottom_toBottomOf="@id/txtLabelHeight"
+            app:layout_constraintStart_toEndOf="@id/barrierLabel"
+            tools:text="125" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtValueWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            android:textAppearance="@style/Text.Body1.OnSurface"
+            app:layout_constraintBottom_toBottomOf="@id/txtLabelWeight"
+            app:layout_constraintStart_toEndOf="@id/barrierLabel"
+            tools:text="50" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtValueAbilities"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            android:lineSpacingMultiplier="1.4"
+            android:textAppearance="@style/Text.Body1.OnSurface"
+            app:layout_constraintStart_toEndOf="@id/barrierLabel"
+            app:layout_constraintTop_toTopOf="@id/txtLabelAbilities"
+            tools:text="@tools:sample/lorem" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

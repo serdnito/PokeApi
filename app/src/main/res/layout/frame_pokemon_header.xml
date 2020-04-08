@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:background="#77DD77"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin"
+        app:layout_constraintBottom_toBottomOf="@id/imgSprite"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imgClose"
+        app:srcCompat="@drawable/ic_pokeball_uncolored" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="@dimen/margin_micro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_close" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_large"
+        android:textAppearance="@style/Text.Headline6"
+        app:layout_constraintBottom_toBottomOf="@id/imgClose"
+        app:layout_constraintEnd_toStartOf="@id/imgClose"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imgClose"
+        tools:text="#001"
+        tools:textColor="@color/colorOnPrimary" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_micro"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/Text.Headline4"
+        app:layout_constraintEnd_toStartOf="@id/imgClose"
+        app:layout_constraintStart_toStartOf="@id/txtNumber"
+        app:layout_constraintTop_toBottomOf="@id/txtNumber"
+        tools:text="@sample/pokedex"
+        tools:textColor="#121212" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chipPrimaryType"
+        style="@style/Chip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin"
+        app:layout_constraintStart_toStartOf="@id/txtName"
+        app:layout_constraintTop_toBottomOf="@id/txtName"
+        tools:chipBackgroundColor="#BF77DD77"
+        tools:text="@sample/types"
+        tools:textColor="#121212" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chipSecondaryType"
+        style="@style/Chip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_micro"
+        app:layout_constraintStart_toEndOf="@id/chipPrimaryType"
+        app:layout_constraintTop_toTopOf="@id/chipPrimaryType"
+        tools:chipBackgroundColor="#BF77DD77"
+        tools:text="@sample/types"
+        tools:textColor="#121212" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgSprite"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toEndOf="@id/chipSecondaryType"
+        app:layout_constraintTop_toBottomOf="@id/txtName"
+        app:layout_constraintWidth_percent="0.35"
+        tools:src="@sample/pokemon" />
+
+</merge>

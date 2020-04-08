@@ -11,10 +11,12 @@ import com.serdnito.pokeapi.data.database.entity.*
     entities = [
         PokedexItemEntity::class,
         PokemonEntity::class,
+        AbilityEntity::class,
+        PokemonJoinAbilityEntity::class,
         StatEntity::class,
-        PokemonAndStatJoin::class,
+        PokemonJoinStatEntity::class,
         TypeEntity::class,
-        PokemonAndTypeJoin::class
+        PokemonJoinTypeEntity::class
     ],
     version = 1
 )
@@ -38,9 +40,11 @@ abstract class PokeDatabase : RoomDatabase() {
 
     abstract fun pokedexDao(): PokedexDao
     abstract fun pokemonDao(): PokemonDao
+    abstract fun pokemonAbilityDao(): AbilityDao
+    abstract fun pokemonJoinAbilityDao(): PokemonJoinAbilityDao
     abstract fun pokemonStatDao(): StatDao
-    abstract fun pokemonAndStatJoinDao(): PokemonAndStatJoinDao
+    abstract fun pokemonJoinStatDao(): PokemonJoinStatDao
     abstract fun pokemonTypeDao(): TypeDao
-    abstract fun pokemonAndTypeJoinDao(): PokemonAndTypeJoinDao
+    abstract fun pokemonJoinTypeDao(): PokemonJoinTypeDao
 
 }

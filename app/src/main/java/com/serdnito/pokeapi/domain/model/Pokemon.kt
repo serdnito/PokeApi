@@ -1,11 +1,12 @@
 package com.serdnito.pokeapi.domain.model
 
 class Pokemon(
-    val height: Int,
+    val abilities: List<PokemonAbility>,
+    val height: Double,
     val id: Int,
     val name: String,
     val stats: List<PokemonStat>,
     val types: List<PokemonType>,
     val urlFrontSprite: String,
-    val weight: Int
+    val weight: Double
 )

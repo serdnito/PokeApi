@@ -9,11 +9,11 @@ import com.serdnito.pokeapi.domain.model.Pokemon
     tableName = "pokemon"
 )
 class PokemonEntity(
-    @ColumnInfo val height: Int,
+    @ColumnInfo val height: Double,
     @PrimaryKey val id: Int,
     @ColumnInfo val name: String,
     @ColumnInfo(name = "url_front_sprite") val urlFrontSprite: String,
-    @ColumnInfo val weight: Int
+    @ColumnInfo val weight: Double
 ) {
 
     companion object {
@@ -27,8 +27,13 @@ class PokemonEntity(
             )
     }
 
-    fun mapToDomain(types: List<TypeEntity>, stats: List<PokemonStatEntity>) =
+    fun mapToDomain(
+        abilities: List<PokemonAbilityEntity>,
+        types: List<TypeEntity>,
+        stats: List<PokemonStatEntity>
+    ) =
         Pokemon(
+            abilities.map { it.mapToDomain() },
             height,
             id,
             name,

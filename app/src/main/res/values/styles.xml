@@ -30,7 +30,7 @@
         <item name="textAppearanceOverline">@style/Text.Overline</item>
         <!-- Themes -->
         <item name="materialButtonStyle">@style/Button</item>
-        <item name="materialCardViewStyle">@style/Widget.MaterialComponents.CardView</item>
+        <item name="materialCardViewStyle">@style/Card</item>
         <!-- Don't use "toolbarStyle" with the theme of Material, it will only work if the style is
         applied directly to a Toolbar. For example, back icon doesn't get colorOnPrimary -->
         <!-- Other -->
@@ -51,16 +51,16 @@
     </style>
 
     <style name="Card" parent="Widget.MaterialComponents.CardView">
-        <item name="cardCornerRadius">16dp</item>
+        <item name="cardCornerRadius">@dimen/card_radius</item>
     </style>
 
     <style name="Chip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipMinTouchTargetSize">0dp</item>
         <item name="android:checked">true</item>
         <item name="android:clickable">false</item>
         <item name="android:ellipsize">end</item>
         <item name="android:maxLines">1</item>
         <item name="android:textAppearance">@style/Text.Caption</item>
-        <item name="chipMinTouchTargetSize">0dp</item>
     </style>
 
     <style name="Fab" parent="Widget.MaterialComponents.FloatingActionButton">
@@ -68,7 +68,13 @@
         <item name="useCompatPadding">true</item>
     </style>
 
-    <style name="Tab" parent="Widget.MaterialComponents.TabLayout">
+    <style name="Stat" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:theme">@style/Theme.Stat</item>
+    </style>
+
+    <style name="Tab" parent="Widget.MaterialComponents.TabLayout.Colored">
+        <item name="android:background">?attr/colorSurface</item>
+        <item name="tabIndicatorColor">?attr/colorPrimary</item>
         <item name="android:theme">@style/Theme.Tab</item>
     </style>
 
@@ -98,8 +104,8 @@
     </style>
 
     <style name="Text.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
-        <item name="fontFamily">@font/raleway_bold</item>
-        <item name="android:fontFamily">@font/raleway_bold</item>
+        <item name="fontFamily">@font/raleway_medium</item>
+        <item name="android:fontFamily">@font/raleway_medium</item>
     </style>
 
     <style name="Text.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
@@ -113,8 +119,12 @@
     </style>
 
     <style name="Text.Body1" parent="TextAppearance.MaterialComponents.Body1">
-        <item name="fontFamily">@font/raleway_regular</item>
-        <item name="android:fontFamily">@font/raleway_regular</item>
+        <item name="fontFamily">@font/raleway_medium</item>
+        <item name="android:fontFamily">@font/raleway_medium</item>
+    </style>
+
+    <style name="Text.Body1.OnSurface">
+        <item name="android:textColor">?attr/colorOnSurface</item>
     </style>
 
     <style name="Text.Body2" parent="TextAppearance.MaterialComponents.Body2">
@@ -125,6 +135,7 @@
     <style name="Text.Button" parent="TextAppearance.MaterialComponents.Button">
         <item name="fontFamily">@font/raleway_medium</item>
         <item name="android:fontFamily">@font/raleway_medium</item>
+        <item name="android:textAllCaps">false</item>
     </style>
 
     <style name="Text.Caption" parent="TextAppearance.MaterialComponents.Caption">
@@ -137,8 +148,12 @@
         <item name="android:fontFamily">@font/raleway_regular</item>
     </style>
 
-    <style name="Theme.Tab" parent="Widget.MaterialComponents.TabLayout">
-        <item name="colorPrimary">?attr/colorOnSurface</item>
+    <style name="Theme.Stat" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="colorSecondary">@color/colorStat</item>
+    </style>
+
+    <style name="Theme.Tab" parent="">
+        <item name="colorOnPrimary">?attr/colorOnSurface</item>
     </style>
 
 </resources>

@@ -1,11 +1,13 @@
 package com.serdnito.pokeapi.data.api.model
 
-import com.serdnito.pokeapi.domain.model.Pokemon
 import com.google.gson.annotations.SerializedName
+import com.serdnito.pokeapi.domain.model.Pokemon
 
 data class Pokemon(
+    @SerializedName("abilities")
+    val abilities: List<PokemonAbility>,
     @SerializedName("height")
-    val height: Int,
+    val height: Int, // decimetres
     @SerializedName("id")
     val id: Int,
     @SerializedName("name")
@@ -17,18 +19,19 @@ data class Pokemon(
     @SerializedName("types")
     val types: List<PokemonType>,
     @SerializedName("weight")
-    val weight: Int
+    val weight: Int // hectograms
 ) {
 
     fun mapToDomain() =
         Pokemon(
-            height,
+            abilities.map { it.mapToDomain() },
+            height / 10.0,
             id,
             name,
             stats.map { it.mapToDomain() },
             types.map { it.mapToDomain() }.reversed(),
             sprites.frontDefault,
-            weight
+            weight / 10.0
         )
 
 }

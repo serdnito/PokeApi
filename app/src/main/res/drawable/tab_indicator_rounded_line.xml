@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:left="@dimen/pager_indicator_padding"
+        android:right="@dimen/pager_indicator_padding">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/white" />
+            <corners
+                android:topLeftRadius="@dimen/pager_indicator_radius"
+                android:topRightRadius="@dimen/pager_indicator_radius" />
+            <size android:height="@dimen/pager_indicator_height" />
+        </shape>
+    </item>
+</layer-list>

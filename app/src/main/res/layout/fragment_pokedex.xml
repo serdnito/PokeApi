@@ -22,6 +22,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/view_holder_pokemon" />
+        tools:listitem="@layout/view_holder_pokedex" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

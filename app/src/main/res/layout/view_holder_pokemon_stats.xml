@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/margin_large">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtLabelHp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="@dimen/alpha_label"
+            android:text="@string/pokemon_stat_hp"
+            android:textAppearance="@style/Text.Body1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtLabelAttack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:alpha="@dimen/alpha_label"
+            android:text="@string/pokemon_stat_attack"
+            android:textAppearance="@style/Text.Body1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtLabelHp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtLabelDefense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:alpha="@dimen/alpha_label"
+            android:text="@string/pokemon_stat_defense"
+            android:textAppearance="@style/Text.Body1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtLabelAttack" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtLabelSpAttack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:alpha="@dimen/alpha_label"
+            android:text="@string/pokemon_stat_sp_attack"
+            android:textAppearance="@style/Text.Body1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtLabelDefense" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtLabelSpDefense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:alpha="@dimen/alpha_label"
+            android:text="@string/pokemon_stat_sp_defense"
+            android:textAppearance="@style/Text.Body1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtLabelSpAttack" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtLabelSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:alpha="@dimen/alpha_label"
+            android:text="@string/pokemon_stat_speed"
+            android:textAppearance="@style/Text.Body1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtLabelSpDefense" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrierLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="txtLabelHp,txtLabelAttack,txtLabelDefense,txtLabelSpAttack, txtLabelSpDefense,txtLabelSpeed" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtValueHp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            android:textAppearance="@style/Text.Body1"
+            app:layout_constraintBottom_toBottomOf="@id/txtLabelHp"
+            app:layout_constraintStart_toEndOf="@id/barrierLabel"
+            tools:text="65" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtValueAttack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            android:textAppearance="@style/Text.Body1"
+            app:layout_constraintBottom_toBottomOf="@id/txtLabelAttack"
+            app:layout_constraintStart_toEndOf="@id/barrierLabel"
+            tools:text="45" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtValueDefense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            android:textAppearance="@style/Text.Body1"
+            app:layout_constraintBottom_toBottomOf="@id/txtLabelDefense"
+            app:layout_constraintStart_toEndOf="@id/barrierLabel"
+            tools:text="40" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtValueSpAttack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            android:textAppearance="@style/Text.Body1"
+            app:layout_constraintBottom_toBottomOf="@id/txtLabelSpAttack"
+            app:layout_constraintStart_toEndOf="@id/barrierLabel"
+            tools:text="60" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtValueSpDefense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            android:textAppearance="@style/Text.Body1"
+            app:layout_constraintBottom_toBottomOf="@id/txtLabelSpDefense"
+            app:layout_constraintStart_toEndOf="@id/barrierLabel"
+            tools:text="65" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtValueSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            android:textAppearance="@style/Text.Body1"
+            app:layout_constraintBottom_toBottomOf="@id/txtLabelSpeed"
+            app:layout_constraintStart_toEndOf="@id/barrierLabel"
+            tools:text="68" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrierValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="txtValueHp,txtValueAttack,txtValueDefense,txtValueSpAttack,txtValueSpDefense,txtValueSpeed" />
+
+        <ProgressBar
+            android:id="@+id/barHp"
+            style="@style/Stat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            app:layout_constraintBottom_toBottomOf="@id/txtValueHp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/barrierValue"
+            app:layout_constraintTop_toTopOf="@id/txtValueHp"
+            tools:progress="65" />
+
+        <ProgressBar
+            android:id="@+id/barAttack"
+            style="@style/Stat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            app:layout_constraintBottom_toBottomOf="@id/txtValueAttack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/barrierValue"
+            app:layout_constraintTop_toTopOf="@id/txtValueAttack"
+            tools:progress="45" />
+
+        <ProgressBar
+            android:id="@+id/barDefense"
+            style="@style/Stat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            app:layout_constraintBottom_toBottomOf="@id/txtValueDefense"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/barrierValue"
+            app:layout_constraintTop_toTopOf="@id/txtValueDefense"
+            tools:progress="40" />
+
+        <ProgressBar
+            android:id="@+id/barSpAttack"
+            style="@style/Stat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            app:layout_constraintBottom_toBottomOf="@id/txtValueSpAttack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/barrierValue"
+            app:layout_constraintTop_toTopOf="@id/txtValueSpAttack"
+            tools:progress="60" />
+
+        <ProgressBar
+            android:id="@+id/barSpDefense"
+            style="@style/Stat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            app:layout_constraintBottom_toBottomOf="@id/txtValueSpDefense"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/barrierValue"
+            app:layout_constraintTop_toTopOf="@id/txtValueSpDefense"
+            tools:progress="65" />
+
+        <ProgressBar
+            android:id="@+id/barSpeed"
+            style="@style/Stat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            app:layout_constraintBottom_toBottomOf="@id/txtValueSpeed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/barrierValue"
+            app:layout_constraintTop_toTopOf="@id/txtValueSpeed"
+            tools:progress="68" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

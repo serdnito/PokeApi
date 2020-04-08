@@ -4,11 +4,10 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import com.serdnito.pokeapi.domain.model.Pokemon
-import com.serdnito.pokeapi.domain.model.PokemonStat
 
 @Entity(
-    tableName = "pokemon_stat_join",
-    primaryKeys = ["pokemon_id", "stat_id"],
+    tableName = "pokemon_type_join",
+    primaryKeys = ["pokemon_id", "type_id"],
     foreignKeys = [
         ForeignKey(
             entity = PokemonEntity::class,
@@ -16,25 +15,25 @@ import com.serdnito.pokeapi.domain.model.PokemonStat
             childColumns = ["pokemon_id"]
         ),
         ForeignKey(
-            entity = StatEntity::class,
+            entity = TypeEntity::class,
             parentColumns = ["id"],
-            childColumns = ["stat_id"]
+            childColumns = ["type_id"]
         )
     ]
 )
-class PokemonAndStatJoin(
+class PokemonJoinTypeEntity(
     @ColumnInfo(name = "pokemon_id") val pokemonId: Int,
-    @ColumnInfo(name = "stat_id") val statId: Int,
-    @ColumnInfo(name = "stat_value") val statValue: Int
+    @ColumnInfo(name = "type_id") val typeId: Int,
+    @ColumnInfo(name = "is_primary") val isPrimary: Int
 ) {
 
     companion object {
-        fun mapFromDomain(pokemon: Pokemon, stats: List<PokemonStat>) =
-            stats.map { pokemonStat ->
-                PokemonAndStatJoin(
+        fun mapFromDomain(pokemon: Pokemon) =
+            pokemon.types.mapIndexed { index, pokemonType ->
+                PokemonJoinTypeEntity(
                     pokemon.id,
-                    pokemonStat.id,
-                    pokemonStat.value
+                    pokemonType.id,
+                    if (pokemon.types.size == 1 || (pokemon.types.size > 1 && index != 0)) 1 else 0
                 )
             }
     }
