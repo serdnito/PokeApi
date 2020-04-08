@@ -11,6 +11,7 @@ import com.serdnito.pokeapi.core.ktx.setTextColor
 import com.serdnito.pokeapi.core.ktx.tint
 import com.serdnito.pokeapi.core.mvp.BaseFragment
 import com.serdnito.pokeapi.domain.model.Pokemon
+import com.serdnito.pokeapi.domain.model.Species
 import com.serdnito.pokeapi.ui.modules.pokedex.di.inject
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_pokemon.*
@@ -75,8 +76,8 @@ class PokemonFragment : BaseFragment(R.layout.fragment_pokemon), PokemonPresente
         imgClose?.tint(textColor)
     }
 
-    private fun initUiPager(pokemon: Pokemon){
-        viewPager?.adapter = PokemonAdapter(pokemon)
+    private fun initUiPager(pokemon: Pokemon, species: Species) {
+        viewPager?.adapter = PokemonAdapter(pokemon, species)
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             val tabTextResId = when (position) {
                 0 -> R.string.pokemon_about
@@ -92,9 +93,9 @@ class PokemonFragment : BaseFragment(R.layout.fragment_pokemon), PokemonPresente
         inject()
     }
 
-    override fun showPokemon(pokemon: Pokemon) {
+    override fun showPokemon(pokemon: Pokemon, species: Species) {
         initUiHeader(pokemon)
-        initUiPager(pokemon)
+        initUiPager(pokemon, species)
         framePokemon?.visibility = View.VISIBLE
     }
 

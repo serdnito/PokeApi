@@ -12,6 +12,8 @@ data class Pokemon(
     val id: Int,
     @SerializedName("name")
     val name: String,
+    @SerializedName("species")
+    val species: NamedApiResource,
     @SerializedName("sprites")
     val sprites: PokemonSprites,
     @SerializedName("stats")
@@ -28,6 +30,7 @@ data class Pokemon(
             height / 10.0,
             id,
             name,
+            species.url.substringBeforeLast("/").substringAfterLast("/").toInt(),
             stats.map { it.mapToDomain() },
             types.map { it.mapToDomain() }.reversed(),
             sprites.frontDefault,

@@ -47,6 +47,10 @@ class PokemonLocalDataSource @Inject constructor(
         database.pokemonJoinTypeDao().getTypesForPokemon(pokemonId)
             .subscribeOn(executor.io)
 
+    fun getSpecies(id: Int): Single<Species> =
+        database.speciesDao().select(id)
+            .map { it.mapToDomain() }
+
     fun savePokedex(namedResourceList: NamedResourceList): Single<NamedResourceList> =
         namedResourceList.list.map { PokedexItemEntity(it.id, it.name) }
             .flatMapCompletable { database.pokedexDao().insertAll(it) }
@@ -95,6 +99,12 @@ class PokemonLocalDataSource @Inject constructor(
             .flatMapCompletable { database.pokemonAbilityDao().insertAll(it) }
             .subscribeOn(executor.io)
 
+    fun saveSpecies(species: Species) =
+        SpeciesEntity.mapFromDomain(species)
+            .mapSingle()
+            .flatMapCompletable { database.speciesDao().insert(it) }
+            .toSingleDefault(species)
+
     private fun saveStats(stats: List<PokemonStat>) =
         StatEntity.mapFromDomain(stats)
             .mapSingle()
@@ -106,6 +116,5 @@ class PokemonLocalDataSource @Inject constructor(
             .mapSingle()
             .flatMapCompletable { database.pokemonTypeDao().insertAll(it) }
             .subscribeOn(executor.io)
-
 
 }

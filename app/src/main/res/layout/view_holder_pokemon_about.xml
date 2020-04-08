@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -11,14 +12,47 @@
         android:padding="@dimen/margin_large">
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtLabelGenus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="@dimen/alpha_label"
+            android:text="@string/pokemon_genus_label"
+            android:textAppearance="@style/Text.Body1.OnSurface"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtLabelEggGroups"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:alpha="@dimen/alpha_label"
+            android:text="@string/pokemon_egg_groups_label"
+            android:textAppearance="@style/Text.Body1.OnSurface"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtLabelGenus" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtLabelShape"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:alpha="@dimen/alpha_label"
+            android:text="@string/pokemon_shape_label"
+            android:textAppearance="@style/Text.Body1.OnSurface"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtLabelEggGroups" />
+
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txtLabelHeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
             android:alpha="@dimen/alpha_label"
             android:text="@string/pokemon_height_label"
             android:textAppearance="@style/Text.Body1.OnSurface"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/txtLabelShape" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txtLabelWeight"
@@ -47,7 +81,40 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:barrierDirection="end"
-            app:constraint_referenced_ids="txtLabelHeight,txtLabelWeight,txtLabelAbilities" />
+            app:constraint_referenced_ids="txtLabelGenus,txtLabelEggGroups,txtLabelShape,txtLabelHeight,txtLabelWeight,txtLabelAbilities" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtValueGenus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            android:textAppearance="@style/Text.Body1.OnSurface"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/barrierLabel"
+            app:layout_constraintTop_toTopOf="@id/txtLabelGenus"
+            tools:text="@tools:sample/lorem" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtValueEggGroups"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            android:textAppearance="@style/Text.Body1.OnSurface"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/barrierLabel"
+            app:layout_constraintTop_toTopOf="@id/txtLabelEggGroups"
+            tools:text="@tools:sample/lorem" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtValueShape"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            android:textAppearance="@style/Text.Body1.OnSurface"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/barrierLabel"
+            app:layout_constraintTop_toTopOf="@id/txtLabelShape"
+            tools:text="@tools:sample/lorem" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txtValueHeight"
@@ -55,8 +122,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin"
             android:textAppearance="@style/Text.Body1.OnSurface"
-            app:layout_constraintBottom_toBottomOf="@id/txtLabelHeight"
             app:layout_constraintStart_toEndOf="@id/barrierLabel"
+            app:layout_constraintTop_toTopOf="@id/txtLabelHeight"
             tools:text="125" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -65,17 +132,18 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin"
             android:textAppearance="@style/Text.Body1.OnSurface"
-            app:layout_constraintBottom_toBottomOf="@id/txtLabelWeight"
             app:layout_constraintStart_toEndOf="@id/barrierLabel"
+            app:layout_constraintTop_toTopOf="@id/txtLabelWeight"
             tools:text="50" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txtValueAbilities"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin"
             android:lineSpacingMultiplier="1.4"
             android:textAppearance="@style/Text.Body1.OnSurface"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/barrierLabel"
             app:layout_constraintTop_toTopOf="@id/txtLabelAbilities"
             tools:text="@tools:sample/lorem" />

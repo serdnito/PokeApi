@@ -5,6 +5,7 @@ import com.serdnito.pokeapi.core.ktx.subscribeBy
 import com.serdnito.pokeapi.core.mvp.BaseView
 import com.serdnito.pokeapi.core.mvp.Presenter
 import com.serdnito.pokeapi.domain.model.Pokemon
+import com.serdnito.pokeapi.domain.model.Species
 import com.serdnito.pokeapi.domain.usecase.GetPokemon
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
@@ -32,7 +33,7 @@ class PokemonPresenter @Inject constructor(
                 onSuccess = {
                     view?.run {
                         hideLoading()
-                        showPokemon(it.pokemon)
+                        showPokemon(it.pokemon, it.species)
                     }
                 })
     }
@@ -47,7 +48,7 @@ class PokemonPresenter @Inject constructor(
 
     interface PokemonView : BaseView {
         fun close()
-        fun showPokemon(pokemon: Pokemon)
+        fun showPokemon(pokemon: Pokemon, species: Species)
     }
 
 }

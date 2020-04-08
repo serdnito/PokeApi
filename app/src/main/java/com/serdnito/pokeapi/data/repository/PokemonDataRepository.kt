@@ -4,6 +4,7 @@ import com.serdnito.pokeapi.data.datasource.pokemon.PokemonLocalDataSource
 import com.serdnito.pokeapi.data.datasource.pokemon.PokemonRemoteDataSource
 import com.serdnito.pokeapi.domain.model.NamedResourceList
 import com.serdnito.pokeapi.domain.model.Pokemon
+import com.serdnito.pokeapi.domain.model.Species
 import com.serdnito.pokeapi.domain.repository.PokemonRepository
 import io.reactivex.Flowable
 import io.reactivex.Single
@@ -31,6 +32,13 @@ class PokemonDataRepository @Inject constructor(
             .onErrorResumeNext { _: Throwable ->
                 remoteDataSource.getPokemon(id)
                     .flatMapSingle { localDataSource.savePokemon(it) }
+            }
+
+    override fun getSpecies(id: Int): Single<Species> =
+        localDataSource.getSpecies(id)
+            .onErrorResumeNext {
+                remoteDataSource.getSpecies(id)
+                    .flatMap { localDataSource.saveSpecies(it) }
             }
 
 }

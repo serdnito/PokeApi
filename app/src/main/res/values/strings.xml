@@ -17,6 +17,9 @@
     <string name="pokedex_number">#%s</string>
     <!-- Pokémon -->
     <string name="pokemon_about">About</string>
+    <string name="pokemon_genus_label">Genus</string>
+    <string name="pokemon_egg_groups_label">Egg groups</string>
+    <string name="pokemon_shape_label">Shape</string>
     <string name="pokemon_height_label">Height</string>
     <string name="pokemon_height_value">%.1f m</string>
     <string name="pokemon_weight_label">Weight</string>

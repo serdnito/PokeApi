@@ -12,6 +12,7 @@ class PokemonEntity(
     @ColumnInfo val height: Double,
     @PrimaryKey val id: Int,
     @ColumnInfo val name: String,
+    @ColumnInfo(name = "species_id") val speciesId: Int,
     @ColumnInfo(name = "url_front_sprite") val urlFrontSprite: String,
     @ColumnInfo val weight: Double
 ) {
@@ -22,6 +23,7 @@ class PokemonEntity(
                 pokemon.height,
                 pokemon.id,
                 pokemon.name,
+                pokemon.speciesId,
                 pokemon.urlFrontSprite,
                 pokemon.weight
             )
@@ -37,6 +39,7 @@ class PokemonEntity(
             height,
             id,
             name,
+            speciesId,
             stats.map { it.mapToDomain() },
             types.map { it.mapToDomain() },
             urlFrontSprite,

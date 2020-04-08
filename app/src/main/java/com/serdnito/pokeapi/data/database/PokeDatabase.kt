@@ -16,7 +16,8 @@ import com.serdnito.pokeapi.data.database.entity.*
         StatEntity::class,
         PokemonJoinStatEntity::class,
         TypeEntity::class,
-        PokemonJoinTypeEntity::class
+        PokemonJoinTypeEntity::class,
+        SpeciesEntity::class
     ],
     version = 1
 )
@@ -35,6 +36,9 @@ abstract class PokeDatabase : RoomDatabase() {
 
         private fun buildDatabase(context: Context) =
             Room.databaseBuilder(context, PokeDatabase::class.java, DATABASE_NAME).build()
+        .apply {
+
+        }
 
     }
 
@@ -46,5 +50,6 @@ abstract class PokeDatabase : RoomDatabase() {
     abstract fun pokemonJoinStatDao(): PokemonJoinStatDao
     abstract fun pokemonTypeDao(): TypeDao
     abstract fun pokemonJoinTypeDao(): PokemonJoinTypeDao
+    abstract fun speciesDao(): SpeciesDao
 
 }
